@@ -3,6 +3,7 @@
     "name": "o-preco-do-dia",
     "slug": "o-preco-do-dia",
     "version": "1.0.0",
+    "scheme": "o-preco-do-dia",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

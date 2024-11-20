@@ -1,10 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, StyleSheet, Text, TextInput, View, Image } from 'react-native';
-import { styles }from '../styles/styles'
+import { styles } from '../../app/styles/styles';
 
-// const img = new Image(); // Isso é correto
+import { Link } from 'expo-router';
 
-export default function Login() {
+
+export default function Home() {
   return (
     <View style={styles.container}>
       <Image 
@@ -28,12 +29,12 @@ export default function Login() {
         />
 
         <Pressable style={styles.formButton}>
-          <Text style={styles.textButton}>Entrar</Text>
+          <Link href={"/home"} style={styles.textButton}>Entrar</Link>
         </Pressable>
 
         <View style={styles.subContainer}>
           <Pressable style={styles.subButton}>
-            <Text style={styles.subTextButton}>Registrar</Text>
+            <Link href={"/registrar"} style={styles.link}>Registrar</Link>
           </Pressable>
         </View>
       </View>

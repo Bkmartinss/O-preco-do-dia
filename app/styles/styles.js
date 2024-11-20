@@ -12,14 +12,14 @@ export const styles = StyleSheet.create({
         marginTop: '10%',
         height: '30%', // Altura ocupa 30%
         resizeMode: 'contain', // Ajustar imagem
-        marginBottom: 5, 
+        marginBottom: '20%', 
+        marginTop: '15%',
     },
 
     formContainer: {
         flex: 1, // Espaço disponível abaixo da logo
-        justifyContent: 'center', // Centraliza verticalmente
         alignItems: 'center', // Centraliza horizontalmente
-        width: '80%', // Conteúdo toda a largura
+        width: '100%', // Conteúdo toda a largura
     },
 
     formTitle: {
@@ -31,12 +31,12 @@ export const styles = StyleSheet.create({
     textTitle: {
         fontSize: 20, 
         alignSelf: 'flex-start', // Texto esquerda
-        marginLeft: '10%', // Alinhar inputs
+        marginLeft: '5%', // Alinhar inputs
         marginBottom: 5, 
     },
 
     formInput: {
-        width: '80%', // Largura inputs
+        width: '90%', // Largura inputs
         borderWidth: 1, // Borda inputs
         borderColor: '#ccc', // Cor borda
         fontSize: 18, // Fonte
@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
     },
 
     formButton: {
-        width: '80%', // Largura igual inputs
+        width: '90%', // Largura igual inputs
         backgroundColor: 'green', // Cor botão
         alignItems: 'center', 
         padding: 15, // Espaço interno do botão
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
         marginTop: 40, // Espaço acima do link
     },
 
-    subTextButton: {
+    link: {
         color: 'blue', // Cor link
         fontSize: 16, // Tamanho
         textDecorationLine: 'underline', // Sublinhado
