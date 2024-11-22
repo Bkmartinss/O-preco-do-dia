@@ -69,35 +69,4 @@ export const styles = StyleSheet.create({
         textDecorationLine: 'underline', // Sublinhado
         textAlign: 'center', // Centralizado
     },
-
-    linklocal: {
-        color: 'blue', // Cor link
-        fontSize: 16, // Tamanho
-        textDecorationLine: 'underline', // Sublinhado
-        alignItems: 'flex-start',
-    },
-
-    formInputObs:{
-        width: '90%', // Largura inputs
-        height: 100,
-        borderWidth: 1, // Borda inputs
-        borderColor: '#ccc', // Cor borda
-        fontSize: 18, // Fonte
-        padding: 10, // Espaço interno
-        borderRadius: 5, // Bordas arredondadas
-        marginBottom: 30,
-        textAlignVertical: 'top',
-    },
-
-    buscar:{
-        width: '90%', // Largura 
-        borderWidth: 1, // Borda 
-        borderColor: '#ccc', // Cor borda
-        fontSize: 18, // Fonte
-        padding: 10, // Espaço interno
-        borderRadius: 30, // Bordas arredondadas
-        marginTop: '5%',
-        marginBottom: '8%',
-    }
 });
-// export default styles;
