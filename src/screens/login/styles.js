@@ -9,30 +9,28 @@ export const styles = StyleSheet.create({
 
     logo: {
         width: '100%', // Largura
-        marginTop: '10%',
-        height: '30%', // Altura ocupa 30%
+        height: '25%', // Altura ocupa 30%
         resizeMode: 'contain', // Ajustar imagem
-        marginBottom: '20%', 
+        marginBottom: '10%', 
         marginTop: '15%',
     },
 
     formContainer: {
-        flex: 1, // Espaço disponível abaixo da logo
-        alignItems: 'center', // Centraliza horizontalmente
+        alignItems: 'center',
         width: '100%', // Conteúdo toda a largura
     },
 
     formTitle: {
-        fontSize: 40, // Fonte
+        fontSize: 35, // Fonte
         textAlign: 'center', 
-        marginBottom: 20, 
+        marginBottom: '3%', 
     },
 
     textTitle: {
-        fontSize: 20, 
+        fontSize: 18, 
         alignSelf: 'flex-start', // Texto esquerda
         marginLeft: '5%', // Alinhar inputs
-        marginBottom: 5, 
+        marginBottom: '2%', 
     },
 
     formInput: {
@@ -41,29 +39,30 @@ export const styles = StyleSheet.create({
         borderColor: '#ccc', // Cor borda
         fontSize: 18, // Fonte
         padding: 10, // Espaço interno
-        borderRadius: 5, // Bordas arredondadas
-        marginBottom: 30, 
+        borderRadius: 10, // Bordas arredondadas
+        marginBottom: 10, 
     },
 
     formButton: {
         width: '90%', // Largura igual inputs
         backgroundColor: 'green', // Cor botão
         alignItems: 'center', 
-        padding: 15, // Espaço interno do botão
+        padding: 10, // Espaço interno do botão
         borderRadius: 15, 
         marginTop: 10, // Espaço acima do botão
+        marginBottom: 10, // Espaço acima do botão
     },
 
     textButton: {
         color: 'white', // Texto
-        fontSize: 18, // Tamanho
+        fontSize: 20, // Tamanho
     },
 
     subContainer: {
         marginTop: 40, // Espaço acima do link
     },
 
-    link: {
+    textLink: {
         color: 'blue', // Cor link
         fontSize: 16, // Tamanho
         textDecorationLine: 'underline', // Sublinhado

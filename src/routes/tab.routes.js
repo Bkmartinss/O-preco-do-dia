@@ -2,6 +2,7 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import {
+    AuthNav,
     HomeNav,
     ProdutosNav,
     LocalNav,
@@ -16,7 +17,7 @@ export default function ShowRoutes(){
         <Tab.Navigator screenOptions={{ headerShown: false }}>
             <Tab.Screen
                 name="HomeTab"
-                component={HomeNav}
+                component={AuthNav}
             />
             <Tab.Screen
                 name="ProdutosTab"

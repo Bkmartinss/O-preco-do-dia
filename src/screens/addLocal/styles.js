@@ -5,15 +5,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
-    },
-
-    logo: {
-        width: '100%', // Largura
-        marginTop: '10%',
-        height: '30%', // Altura ocupa 30%
-        resizeMode: 'contain', // Ajustar imagem
-        marginBottom: '20%', 
-        marginTop: '15%',
+        paddingTop: '3%',
     },
 
     formContainer: {
@@ -62,42 +54,4 @@ export const styles = StyleSheet.create({
     subContainer: {
         marginTop: 40, // Espaço acima do link
     },
-
-    link: {
-        color: 'blue', // Cor link
-        fontSize: 16, // Tamanho
-        textDecorationLine: 'underline', // Sublinhado
-        textAlign: 'center', // Centralizado
-    },
-
-    linklocal: {
-        color: 'blue', // Cor link
-        fontSize: 16, // Tamanho
-        textDecorationLine: 'underline', // Sublinhado
-        alignItems: 'flex-start',
-    },
-
-    formInputObs:{
-        width: '90%', // Largura inputs
-        height: 100,
-        borderWidth: 1, // Borda inputs
-        borderColor: '#ccc', // Cor borda
-        fontSize: 18, // Fonte
-        padding: 10, // Espaço interno
-        borderRadius: 5, // Bordas arredondadas
-        marginBottom: 30,
-        textAlignVertical: 'top',
-    },
-
-    buscar:{
-        width: '90%', // Largura 
-        borderWidth: 1, // Borda 
-        borderColor: '#ccc', // Cor borda
-        fontSize: 18, // Fonte
-        padding: 10, // Espaço interno
-        borderRadius: 30, // Bordas arredondadas
-        marginTop: '5%',
-        marginBottom: '8%',
-    }
 });
-// export default styles;

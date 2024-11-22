@@ -5,7 +5,7 @@ import local from './local';
 import login from './login';
 import perfil from './perfil';
 import produtos from './produtos';
-import registrar from './registrar';
+import cadastro from './cadastro';
 
 export {
     categoria,
@@ -15,5 +15,5 @@ export {
     login,
     perfil,
     produtos,
-    registrar
+    cadastro
 }
