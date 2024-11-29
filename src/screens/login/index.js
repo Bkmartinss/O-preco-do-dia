@@ -46,18 +46,33 @@ export default function Login({ navigation }){
   )
 }
 
-function fazerLogin(user, pass){
-  fetch('192.168.0.102:3000/login', {
+async function fazerLogin(user, pass){
+  await fetch('http://192.168.0.102:3000/login', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      
       email: user,
-      password: pass,
-      
+      password: pass
     }),
-    
   })
-  .then(res => console.log(res.json()))
+  .then(res => {
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return res.json();
+  })
+  .then(data => validaLogin(data))
+  .catch(error => console.error('Error:', error));
 }
+
+
+async function validaLogin(res) {
+  if (res && res.statusCode == 200) {
+    navigation.navigate('Home');
+  } else {
+    console.log("Erro");
+  }
+  console.log(res ? res.statusCode : 'No response');
+}
+
 
