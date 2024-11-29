@@ -5,7 +5,7 @@ import {
     categoria,
     editar,
     home,
-    local,
+    // local,
     login,
     perfil,
     produtos,
@@ -27,7 +27,7 @@ export function AuthNav() {
             <Stack.Screen name="Cadastro" component={cadastro} />
             <Stack.Screen name="Home" component={home} />
             <Stack.Screen name="Editar" component={editar}/>
-            <Stack.Screen name="Local" component={local} />
+            {/* <Stack.Screen name="Local" component={local} /> */}
          </Stack.Navigator>
     );
 }
@@ -53,19 +53,19 @@ export function ProdutosNav(){
         </Stack.Navigator>
     )
 }
-export function LocalNav(){
-    return(
-        <Stack.Navigator screenOptions={{ 
-            headerTitleAlign: 'center',
-            headerTitleStyle: {
-                fontSize: 25,
-                fontWeight: 'bold',
-            }
-        }}>
-            <Stack.Screen name='Local' component={local}/>
-        </Stack.Navigator>
-    )
-}
+// export function LocalNav(){
+//     return(
+//         <Stack.Navigator screenOptions={{ 
+//             headerTitleAlign: 'center',
+//             headerTitleStyle: {
+//                 fontSize: 25,
+//                 fontWeight: 'bold',
+//             }
+//         }}>
+//             <Stack.Screen name='Local' component={local}/>
+//         </Stack.Navigator>
+//     )
+// }
 export function CategoriaNav(){
     return(
         <Stack.Navigator screenOptions={{ 

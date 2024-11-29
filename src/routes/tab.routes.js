@@ -5,7 +5,7 @@ import {
     AuthNav,
     HomeNav,
     ProdutosNav,
-    LocalNav,
+    // LocalNav,
     CategoriaNav,
     PerfilNav
 } from './stack.routes'
@@ -23,10 +23,10 @@ export default function ShowRoutes(){
                 name="ProdutosTab"
                 component={ProdutosNav}
             />
-            <Tab.Screen
+            {/* <Tab.Screen
                 name="LocalTab"
                 component={LocalNav}
-            />
+            /> */}
             <Tab.Screen
                 name="CategoriaTab"
                 component={CategoriaNav}

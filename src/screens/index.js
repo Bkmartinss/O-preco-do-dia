@@ -1,7 +1,7 @@
 import categoria from './categoria';
 import editar from './editar';
 import home from './home';
-import local from './local';
+// import local from './local';
 import login from './login';
 import perfil from './perfil';
 import produtos from './produtos';
@@ -11,7 +11,7 @@ export {
     categoria,
     editar,
     home,
-    local,
+    // local,
     login,
     perfil,
     produtos,
