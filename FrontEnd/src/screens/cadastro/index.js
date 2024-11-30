@@ -1,7 +1,8 @@
+import React from 'react';
 import { Pressable, Text, TextInput, View  } from 'react-native';
 import { styles } from './styles';
 
-export default function Cadastro({navigation}) {
+export default function Cadastro({ navigation }) {
   const[ email, setEmail ] = React.useState(' ')
   const[ pass, setPass]  = React.useState(' ')
   const[ fullName, setFullName ] = React.useState(' ')
@@ -36,7 +37,7 @@ export default function Cadastro({navigation}) {
         />
 
         <Pressable style={styles.formButton} onPress={() => fazerCadastro(email, pass, fullName, userName)}>
-          <Text style={styles.textButton}>Salvar</Text>
+          <Text  style={styles.textButton}>Salvar</Text>
         </Pressable>
         
       </View>
@@ -69,7 +70,7 @@ async function fazerCadastro(email, pass, fullName, userName){
 
 async function validaCadastro(res) {
   if (res && res.statusCode == 200) {
-    navigation.navigate('Login');
+    navigation.replace('Login');
   } else {
     console.log("Erro");
   }

@@ -23,11 +23,11 @@ export default function Produtos({ navigation }) {
           </Picker>
         </View>
 
-        {/* <View style={styles.subContainerLocal}>
+        <View style={styles.subContainerLocal}>
           <Text style={styles.textLink}
-            onPress={() => {console.log("Navegando para: Local"); navigation.navigate('Local')}}
+            onPress={() => {console.log("Navegando para: Local"); navigation.navigate('LocalTab')}}
           >Sugerir local</Text>
-        </View> */}
+        </View>
         
         <Text style={styles.textTitle}>Nome *</Text>
         <TextInput style={styles.formInput}

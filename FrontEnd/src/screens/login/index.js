@@ -68,7 +68,7 @@ async function fazerLogin(user, pass){
 
 async function validaLogin(res) {
   if (res && res.statusCode == 200) {
-    navigation.navigate('Home');
+    navigation.navigate('HomeTab');
   } else {
     console.log("Erro");
   }

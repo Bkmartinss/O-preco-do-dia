@@ -14,17 +14,11 @@ export const styles = StyleSheet.create({
         width: '100%', // Conteúdo toda a largura
     },
 
-    formTitle: {
-        fontSize: 40, // Fonte
-        textAlign: 'center', 
-        marginBottom: 20, 
-    },
-
     textTitle: {
         fontSize: 20, 
         alignSelf: 'flex-start', // Texto esquerda
         marginLeft: '5%', // Alinhar inputs
-        marginBottom: 5, 
+        marginBottom: 10, 
     },
 
     formInput: {
@@ -34,24 +28,20 @@ export const styles = StyleSheet.create({
         fontSize: 18, // Fonte
         padding: 10, // Espaço interno
         borderRadius: 5, // Bordas arredondadas
-        marginBottom: 30, 
+        marginBottom: 10, 
     },
 
     formButton: {
         width: '90%', // Largura igual inputs
         backgroundColor: 'green', // Cor botão
         alignItems: 'center', 
-        padding: 15, // Espaço interno do botão
+        padding: 10, // Espaço interno do botão
         borderRadius: 15, 
-        marginTop: 10, // Espaço acima do botão
+        marginTop: 5, // Espaço acima do botão
     },
 
     textButton: {
         color: 'white', // Texto
         fontSize: 18, // Tamanho
-    },
-
-    subContainer: {
-        marginTop: 40, // Espaço acima do link
     },
 });

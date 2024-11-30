@@ -9,7 +9,7 @@ export default function Perfil({ navigation }) {
 
       <View style={styles.profileContainer}>
         <Image
-          source={{ uri: 'https://via.placeholder.com/150' }} // URL de exemplo para a foto
+          source={require('../../../assets/perfil.png')} 
           style={styles.profileImage}
         />
         <Text style={styles.profileName}>Nome</Text>

@@ -13,16 +13,11 @@ export const styles = StyleSheet.create({
         width: '100%', // Conteúdo toda a largura
     },
 
-    formTitle: {
-        fontSize: 40, // Fonte
-        textAlign: 'center', 
-        marginBottom: 20, 
-    },
-
     textTitle: {
         fontSize: 20, 
         alignSelf: 'flex-start', // Texto esquerda
         marginLeft: '5%', // Alinhar inputs
+        marginTop:5,
         marginBottom: 5, 
     },
 
@@ -33,7 +28,7 @@ export const styles = StyleSheet.create({
         fontSize: 18, // Fonte
         padding: 10, // Espaço interno
         borderRadius: 5, // Bordas arredondadas
-        marginBottom: 30, 
+        marginBottom: 10, 
     },
 
     formButton: {

@@ -13,12 +13,6 @@ export const styles = StyleSheet.create({
         width: '100%', // Conteúdo toda a largura
     },
 
-    formTitle: {
-        fontSize: 40, // Fonte
-        textAlign: 'center', 
-        marginBottom: 20, 
-    },
-
     textTitle: {
         fontSize: 20, 
         alignSelf: 'flex-start', // Texto esquerda
@@ -33,14 +27,14 @@ export const styles = StyleSheet.create({
         fontSize: 18, // Fonte
         padding: 10, // Espaço interno
         borderRadius: 5, // Bordas arredondadas
-        marginBottom: 30, 
+        marginBottom: 10, 
     },
 
     subContainerValue: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         // alignItems: 'center', // Alinha os itens no centro da linha
-        marginBottom: 16,
+        marginBottom: 10,
     },
 
     textLink:{
@@ -56,7 +50,7 @@ export const styles = StyleSheet.create({
         borderColor: '#ccc',
         borderRadius: 10,
         paddingHorizontal: 10,
-        marginBottom: 16,
+        marginBottom: 15,
     },
     pickerItem: {
         textAlign: 'left', // Alinha dentro do Picker
@@ -66,7 +60,7 @@ export const styles = StyleSheet.create({
         width: '90%', // Largura igual inputs
         backgroundColor: 'green', // Cor botão
         alignItems: 'center', 
-        padding: 15, // Espaço interno do botão
+        padding: 10, // Espaço interno do botão
         borderRadius: 15, 
         marginTop: 10, // Espaço acima do botão
     },
@@ -77,7 +71,7 @@ export const styles = StyleSheet.create({
     },
 
     subContainer: {
-        marginTop: 40, // Espaço acima do link
+        marginTop: 20, // Espaço acima do link
     },
 
     linklocal: {
@@ -95,7 +89,7 @@ export const styles = StyleSheet.create({
         fontSize: 18, // Fonte
         padding: 10, // Espaço interno
         borderRadius: 5, // Bordas arredondadas
-        marginBottom: 30,
+        marginBottom: 20,
         textAlignVertical: 'top',
     },
 
@@ -110,7 +104,7 @@ export const styles = StyleSheet.create({
         width: '50%',
         backgroundColor: 'blue',
         alignItems: 'center', 
-        padding: 15, // Espaço interno do botão
+        padding: 10, // Espaço interno do botão
         borderRadius: 15, 
         marginTop: 10,
         marginBottom: 15,

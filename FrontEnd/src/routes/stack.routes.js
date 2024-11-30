@@ -23,9 +23,11 @@ export function AuthNav() {
             fontWeight: 'bold',
         }}}
             >
-            <Stack.Screen name="Login" component={login} />
-            <Stack.Screen name="Cadastro" component={cadastro} />
+            <Stack.Screen name="Login" component={login} 
+                options={{  headerShown: false }} />
+            <Stack.Screen name="Cadastro" component={cadastro}/>
             <Stack.Screen name="Home" component={home} />
+            <Stack.Screen name="Perfil" component={perfil} />
             <Stack.Screen name="Editar" component={editar}/>
             <Stack.Screen name="Local" component={local} />
          </Stack.Navigator>
