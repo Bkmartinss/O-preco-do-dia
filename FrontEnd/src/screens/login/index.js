@@ -51,7 +51,7 @@ async function fazerLogin(user, pass){
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      email: user,
+      userName: user,
       password: pass
     }),
   })

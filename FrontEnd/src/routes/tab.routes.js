@@ -1,11 +1,12 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
+
 import {
     AuthNav,
     HomeNav,
     ProdutosNav,
-    // LocalNav,
+    LocalNav,
     CategoriaNav,
     PerfilNav
 } from './stack.routes'
@@ -16,6 +17,7 @@ export default function ShowRoutes(){
     return(
         <Tab.Navigator screenOptions={{ headerShown: false }}>
             <Tab.Screen
+                // options={tabBarI}
                 name="HomeTab"
                 component={AuthNav}
             />
@@ -23,13 +25,13 @@ export default function ShowRoutes(){
                 name="ProdutosTab"
                 component={ProdutosNav}
             />
-            {/* <Tab.Screen
-                name="LocalTab"
-                component={LocalNav}
-            /> */}
             <Tab.Screen
                 name="CategoriaTab"
                 component={CategoriaNav}
+            />
+            <Tab.Screen
+                name="LocalTab"
+                component={LocalNav}
             />
             <Tab.Screen
                 name="PerfilTab"

@@ -15,7 +15,7 @@ const createUser = async (req, res) => {
     try {
         console.log(req.body);
 
-        const newUser = new userModel({ email: req.body.email, password: req.body.password });
+        const newUser = new userModel({ email: req.body.email, password: req.body.password, fullName: req.body.fullName, userName: req.body.userName });
 
         const userSaved = await newUser.save();
 

@@ -17,16 +17,18 @@ export default function Perfil({ navigation }) {
 
       <View style={styles.subContainer}>
 
-        <View style={styles.itemContainer}>
+
+        <TouchableOpacity style={styles.itemContainer}>
           <Icon name="edit" size={30} color="#000" />
           <View style={styles.textContainer}>
-            <Text style={styles.itemTitle}
-              onPress={() => navigation.navigate('editar')}
-            >Editar Perfil</Text>
-            {/* <Text style={styles.itemTitle}>Editar Perfil</Text> */}
-          <Text style={styles.itemDescription}>Email, Segurança, mudar número</Text>
+            <Text style={styles.itemTitle} 
+              onPress={() => navigation.navigate('Editar')}
+              >Editar</Text>
+            <Text style={styles.itemDescription}>
+              Email, Segurança, mudar número
+            </Text>
           </View>
-        </View>
+        </TouchableOpacity>
 
         <View style={styles.divider} />
     

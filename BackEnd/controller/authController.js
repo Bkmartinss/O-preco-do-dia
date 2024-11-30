@@ -4,7 +4,7 @@ const userModel = require("../models/User");
 
 const login = async (req, res) => {
     try {
-        const user = await userModel.findOne({ where: { email: req.body.email } });
+        const user = await userModel.findOne({ where: { userName: req.body.userName } });
         console.log("OI 1")
 
         if (!user) {
@@ -25,7 +25,7 @@ const login = async (req, res) => {
             });
         }
 
-        const token = jwt.sign({ email: user.email }, process.env.SECRET);
+        const token = jwt.sign({ userName: user.userName }, process.env.SECRET);
         console.log("token " + token);
         res.status(200).json({
             statusCode: 200,
