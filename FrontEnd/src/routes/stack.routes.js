@@ -12,24 +12,27 @@ import {
     cadastro,
 } from '../screens';
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator() //pilha  
 
 export function AuthNav() {
     return (
-        <Stack.Navigator initialRouteName="Login" screenOptions={{
+        <Stack.Navigator initialRouteName="Login" //tela inicial
+        screenOptions={{ //aplicado a todas as telas
+            headerShown: false,
             headerTitleAlign: 'center',
             headerTitleStyle: {
             fontSize: 25,
             fontWeight: 'bold',
         }}}
             >
-            <Stack.Screen name="Login" component={login} 
-                options={{  headerShown: false }} />
-            <Stack.Screen name="Cadastro" component={cadastro}/>
+            <Stack.Screen name="Login" component={login}/>
+            <Stack.Screen name="Cadastro" component={cadastro} options={{headerShown: true}}/>
             <Stack.Screen name="Home" component={home} />
-            <Stack.Screen name="Perfil" component={perfil} />
+            <Stack.Screen name="Produtos" component={produtos}/>
+            <Stack.Screen name="Categoria" component={categoria}/>
+            <Stack.Screen name="Local" component={local}/>
+            <Stack.Screen name="Perfil" component={perfil}/>
             <Stack.Screen name="Editar" component={editar}/>
-            <Stack.Screen name="Local" component={local} />
          </Stack.Navigator>
     );
 }

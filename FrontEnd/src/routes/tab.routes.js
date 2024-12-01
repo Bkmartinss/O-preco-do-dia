@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import Icon from 'react-native-vector-icons/MaterialIcons';
-
+import Icon from 'react-native-vector-icons/MaterialIcons'; //ícones 
 
 import {
     AuthNav,
@@ -12,16 +11,16 @@ import {
     PerfilNav
 } from './stack.routes'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator(); //abas 
 
 export default function ShowRoutes(){
     return(
         <Tab.Navigator screenOptions={({ route }) => ({
             headerShown: false, // Remove o cabeçalho padrão
-            tabBarShowLabel: false,
+            tabBarShowLabel: false, //Remove o nome no ícone
             tabBarIcon: ({ focused, color, size }) => {
                 let iconSize = 40;
-                let iconName;
+                // let iconName;
                 //ícones para cada rota
                 if (route.name === 'HomeTab') {
                     iconName = 'home';

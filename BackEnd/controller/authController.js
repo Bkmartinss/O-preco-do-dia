@@ -1,42 +1,44 @@
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+const bcrypt = require("bcrypt"); //bcrypt para hashing e validação de senhas
+const jwt = require("jsonwebtoken"); //criação e validação de tokens JWT
 const userModel = require("../models/User");
 
-const login = async (req, res) => {
+const login = async (req, res) => { //autenticação de login
     try {
         const user = await userModel.findOne({ where: { userName: req.body.userName } });
+        //no bd de tem o usuário
         console.log("OI 1")
 
-        if (!user) {
+        if (!user) { //se usuário não encontrado
             console.log("OI ENTREI 2")
             return res.status(401).json({
-                statusCode: 401,
+                statusCode: 401, 
                 message: "Usuário não encontrado",
             });
         }
 
         const validadePassword = bcrypt.compareSync(req.body.password, user.password);
+        //compara no bd se a senha com o hash existe
         console.log("VALIDATE")
-        if (!validadePassword) {
+        if (!validadePassword) { //se senha não encontrada
             console.log("Entrei nao autorizado")
             return res.status(401).json({
                 statusCode: 401,
                 message: "Não autorizado",
             });
         }
-
+        //cria o token JWT com usuário e senha de forma secreta, em variáveis de ambiente
         const token = jwt.sign({ userName: user.userName }, process.env.SECRET);
         console.log("token " + token);
-        res.status(200).json({
+        res.status(200).json({ 
             statusCode: 200,
             message: "Login realizado com sucesso",
             data: {
-                token: token,
+                token: token, //token gerado
             },
         });
         
     console.log("Ress final")
-    } catch (error) {
+    } catch (error) { //se erro
         console.error(error);
         res.status(500).json({
             statusCode: 500,
@@ -45,12 +47,12 @@ const login = async (req, res) => {
     }
 };
 
-const verifyToken = async (req, res, next) => {
+const verifyToken = async (req, res, next) => { //verificação de tem token JWT
     const tokenHeader = req.headers["authorization"];
     
     //const token = tokenHeader && tokenHeader.split(" ")[1]; 
     
-    if (!tokenHeader) {
+    if (!tokenHeader) { // se token não encontrado
         return res.status(401).json({
             statusCode: 401,
             message: "Token invalido 1!",
@@ -58,7 +60,7 @@ const verifyToken = async (req, res, next) => {
     }
     try {
         jwt.verify(tokenHeader, process.env.SECRET);
-        next();
+        next(); //token seja válido
     } catch (error) {
         console.error(error);
         res.status(500).json({
@@ -67,7 +69,7 @@ const verifyToken = async (req, res, next) => {
         });
     }
 };
-
+//exporta as funções `login` e `verifyToken` para serem usadas
 module.exports = {
     login,
     verifyToken,
