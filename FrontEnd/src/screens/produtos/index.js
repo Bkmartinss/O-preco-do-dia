@@ -30,7 +30,7 @@ export default function Produtos({ navigation }) {
     }
   };
 
-  const fetchCategories = async () => { ////requisição GET p API - categoria
+  const fetchCategories = async () => { //requisição GET p API - categoria
     try {
       const response = await fetch('http://127.0.0.1:3000/categories');
       const data = await response.json();

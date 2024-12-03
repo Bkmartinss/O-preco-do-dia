@@ -42,7 +42,7 @@ router.post('/products', upload.single('image'), async (req, res) => {
             preco: req.body.preco,
             descricao: req.body.descricao,
             // image: req.file.path,
-            usuario: req.body.usuario,
+            // usuario: req.body.usuario,
             CategoryId: req.body.categoriaId,
             LocationId: req.body.localId
         });
