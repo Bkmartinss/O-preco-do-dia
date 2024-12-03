@@ -41,13 +41,14 @@ router.post('/products', upload.single('image'), async (req, res) => {
             nome: req.body.nome,
             preco: req.body.preco,
             descricao: req.body.descricao,
-            image: req.file.path,
+            // image: req.file.path,
             usuario: req.body.usuario,
             CategoryId: req.body.categoriaId,
             LocationId: req.body.localId
         });
         res.status(201).json(product);
     } catch (err) {
+        console.error('Error creating product:', err);
         res.status(400).json({ error: err.message });
     }
 });

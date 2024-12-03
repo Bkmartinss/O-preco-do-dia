@@ -3,10 +3,10 @@ import { Pressable, Text, TextInput, View  } from 'react-native';
 import { styles } from './styles';
 
 export default function Cadastro({ navigation }) {
-  const[ email, setEmail ] = React.useState(' ')
-  const[ pass, setPass]  = React.useState(' ')
-  const[ fullName, setFullName ] = React.useState(' ')
-  const[ userName, setUserName]  = React.useState(' ')
+  const[ email, setEmail ] = React.useState(' ');
+  const[ pass, setPass]  = React.useState(' ');
+  const[ fullName, setFullName ] = React.useState(' ');
+  const[ userName, setUserName]  = React.useState(' ');
   
   return(
     <View style={styles.container}> 
@@ -36,18 +36,21 @@ export default function Cadastro({ navigation }) {
           onChangeText={setUserName}
         />
 
-        <Pressable style={styles.formButton} onPress={() => fazerCadastro(email, pass, fullName, userName)}>
+        <Pressable 
+          style={styles.formButton} 
+          onPress={() => fazerCadastro(email, pass, fullName, userName, navigation)}
+          >
           <Text  style={styles.textButton}>Salvar</Text>
         </Pressable>
         
       </View>
 
     </View>
-  )
+  );
 }
 
-async function fazerCadastro(email, pass, fullName, userName){
-  await fetch('http://192.168.0.102:3000/cadastro', {
+async function fazerCadastro(email, pass, fullName, userName, navigation){
+  await fetch('http://127.0.0.1:3000/cadastro', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -63,13 +66,13 @@ async function fazerCadastro(email, pass, fullName, userName){
     }
     return res.json();
   })
-  .then(data => validaCadastro(data))
-  .catch(error => console.error('Error:', error));
+  .then((data) => validaCadastro(data, navigation))
+  .catch((error) => console.error('Error:', error));
 }
 
 
-async function validaCadastro(res) {
-  if (res && res.statusCode == 200) {
+async function validaCadastro(res, navigation) {
+  if (res && res.statusCode == 201) {
     navigation.replace('Login');
   } else {
     console.log("Erro");

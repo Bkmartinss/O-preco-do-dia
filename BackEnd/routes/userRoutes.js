@@ -4,7 +4,7 @@ const authController = require('../controller/authController');
 const userController = require('../controller/userController');
 
 router.post('/login', authController.login);
-router.post("/register", userController.createUser);
+router.post("/cadastro", userController.createUser);
 router.post("/rotarAutenticada", authController.verifyToken, userController.routerAuthenticated);
 
 

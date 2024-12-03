@@ -27,7 +27,13 @@ router.post('/categories/add', async (req, res) =>{
     try{
         console.log(req.body);
         const category = await Category.create({ nome: req.body.nome });
-        res.status(201).json(category);
+        res.status(201).json({
+            statusCode: 201, //Recurso criado com sucesso
+            message: "Categoria criado com sucesso!",
+            data: {
+                category
+            }
+        });
     }catch(err){
         console.log(err);
         return

@@ -30,10 +30,15 @@ export const styles = StyleSheet.create({
         marginBottom: 10, 
     },
 
-    subContainerValue: {
+    pickerContainer: {
+        width: '90%', // largura disponível
+        height: 50, // altura 
+        borderWidth: 1, // borda 
+        borderColor: '#ccc',
+        borderRadius: 5, // cantos
+        overflow: 'hidden', // conteudo dentro dos limites
         flexDirection: 'row',
         justifyContent: 'space-between',
-        // alignItems: 'center', // Alinha os itens no centro da linha
         marginBottom: 10,
     },
 
@@ -41,14 +46,11 @@ export const styles = StyleSheet.create({
         color: 'blue', // Cor link
         fontSize: 16, // Tamanho
         textDecorationLine: 'underline', // Sublinhado
-        // textAlign: 'left', // Centralizado
     },
 
     picker: {
         width: '100%',  // Largura do Picker
-        borderWidth: 1,
-        borderColor: '#ccc',
-        borderRadius: 10,
+        height: '100%',
         paddingHorizontal: 10,
         marginBottom: 15,
     },
@@ -93,14 +95,14 @@ export const styles = StyleSheet.create({
         textAlignVertical: 'top',
     },
 
-    subContainerFoto:{
+    subContainerImage:{
         alignItems: 'center', 
         width: '90%',
         borderWidth: 1, // Borda inputs
         borderColor: '#ccc', // Cor borda
     },
 
-    formButtonFoto:{
+    formButtonImage:{
         width: '50%',
         backgroundColor: 'blue',
         alignItems: 'center', 
@@ -109,7 +111,7 @@ export const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 15,
     },
-    textButtonFoto:{
+    textButtonImage:{
         color: 'white',
     }
 });
