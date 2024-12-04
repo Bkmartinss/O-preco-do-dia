@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TextInput, Image, Pressable } from 'react-native';
 import { styles } from './styles';
 
 export default function Editar({ navigation }) {
@@ -7,41 +7,44 @@ export default function Editar({ navigation }) {
         <View style={styles.container}>
             <View style={styles.profileContainer}>
                 <Image
-                    source={{ uri: 'https://via.placeholder.com/150' }} // URL de exemplo para a foto
+                    source={require('../../../assets/perfil.png')} 
                     style={styles.profileImage}
                 />
             <Text style={styles.profileName}>Nome</Text>
             </View>
 
-            <Text style={styles.textTitle}>Nome *</Text>
-            <TextInput style={styles.formInput}
-                placeholder='Value'
-                autoCapitalize='none'
-            />
-            <Text style={styles.textTitle}>Email</Text>
-            <TextInput style={styles.formInput}
-                placeholder='Value'
-                autoCapitalize='none'
-            />
-            <Text style={styles.textTitle}>CPF</Text>
-            <TextInput style={styles.formInput}
-                placeholder='Value'
-                autoCapitalize='none'
-            />
-            <Text style={styles.textTitle}>Senha</Text>
-            <TextInput style={styles.formInput}
-                placeholder='Value'
-                autoCapitalize='none'
-            />
-            <Text style={styles.textTitle}>Telefone</Text>
-            <TextInput style={styles.formInput}
-                placeholder='Value'
-                autoCapitalize='none'
-            />
-            <Button
-                title='Salvar'
-                onPress={() => navigation.navigate('')} // Navega para a tela Home
-            />
+            <View style={styles.subcontainer}>
+                <Text style={styles.textTitle}>Nome *</Text>
+                <TextInput style={styles.formInput}
+                    placeholder='Value'
+                    autoCapitalize='none'
+                />
+                <Text style={styles.textTitle}>Email</Text>
+                <TextInput style={styles.formInput}
+                    placeholder='Value'
+                    autoCapitalize='none'
+                />
+                <Text style={styles.textTitle}>CPF</Text>
+                <TextInput style={styles.formInput}
+                    placeholder='Value'
+                    autoCapitalize='none'
+                />
+                <Text style={styles.textTitle}>Senha</Text>
+                <TextInput style={styles.formInput}
+                    placeholder='Value'
+                    autoCapitalize='none'
+                />
+                <Text style={styles.textTitle}>Telefone</Text>
+                <TextInput style={styles.formInput}
+                    placeholder='Value'
+                    autoCapitalize='none'
+                />
+                <Pressable style={styles.formButton} 
+                    onPress={() => navigation.navigate('Perfil')}
+                >
+                    <Text style={styles.textButton}>Salvar</Text>
+                </Pressable>
+            </View>
         </View>
     );
 }

@@ -20,14 +20,14 @@ export default function Login({ navigation }) {
         <Text style={styles.textTitle}>Usuário</Text>
         <TextInput
           style={styles.formInput}
-          placeholder="Value"
+          placeholder="Digite seu usuário..."
           autoCapitalize="none"
           onChangeText={setUser}
         />
         <Text style={styles.textTitle}>Senha</Text>
         <TextInput
           style={styles.formInput}
-          placeholder="Value"
+          placeholder="Digite sua senha..."
           autoCapitalize="none"
           secureTextEntry={true}
           onChangeText={setPass}
@@ -69,7 +69,7 @@ async function fazerLogin(user, pass, navigation) {
       return res.json();
     })
     .then((data) => validaLogin(data, navigation))
-    .catch((error) => console.error('Error:', error));
+    .catch((error) => console.error('Error:', error))
 }
 
 async function validaLogin(res, navigation) {

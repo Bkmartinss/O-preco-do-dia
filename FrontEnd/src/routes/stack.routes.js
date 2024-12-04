@@ -1,5 +1,4 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
     categoria,
@@ -11,31 +10,29 @@ import {
     produtos,
     cadastro,
 } from '../screens';
+import ShowRoutes from "./tab.routes";
 
 const Stack = createNativeStackNavigator() //pilha  
 
-export function AuthNav() {
-    return (
-        <Stack.Navigator initialRouteName="Login" //tela inicial
+export default props => (
+    <Stack.Navigator 
+        initialRouteName="Login" //tela inicial
         screenOptions={{ //aplicado a todas as telas
             headerShown: false,
+            headerLeft: () => null,
             headerTitleAlign: 'center',
             headerTitleStyle: {
-            fontSize: 25,
-            fontWeight: 'bold',
+                fontSize: 25,
+                fontWeight: 'bold',
         }}}
             >
             <Stack.Screen name="Login" component={login}/>
             <Stack.Screen name="Cadastro" component={cadastro} options={{headerShown: true}}/>
-            <Stack.Screen name="Home" component={home} />
-            <Stack.Screen name="Produtos" component={produtos}/>
-            <Stack.Screen name="Categoria" component={categoria}/>
-            <Stack.Screen name="Local" component={local}/>
-            <Stack.Screen name="Perfil" component={perfil}/>
-            <Stack.Screen name="Editar" component={editar}/>
-         </Stack.Navigator>
-    );
-}
+            <Stack.Screen name="Home" component={ShowRoutes} />
+            <Stack.Screen name="Perfil" component={perfil} />
+            <Stack.Screen name="Editar" component={editar} options={{headerShown: true}}/>
+    </Stack.Navigator>
+)
 
 export function HomeNav(){
     return(

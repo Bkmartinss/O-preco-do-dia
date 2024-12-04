@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import Icon from 'react-native-vector-icons/MaterialIcons'; //ícones 
 
 import {
-    AuthNav,
     HomeNav,
     ProdutosNav,
     LocalNav,
@@ -20,7 +19,6 @@ export default function ShowRoutes(){
             tabBarShowLabel: false, //Remove o nome no ícone
             tabBarIcon: ({ focused, color, size }) => {
                 let iconSize = 40;
-                // let iconName;
                 //ícones para cada rota
                 if (route.name === 'HomeTab') {
                     iconName = 'home';
@@ -33,10 +31,8 @@ export default function ShowRoutes(){
                 } else if (route.name === 'PerfilTab') {
                     iconName = 'person';
                 }
-
-                //ícone com as configurações
                 return (
-                    <Icon
+                    <Icon 
                         name={iconName}
                         size={iconSize}
                         color={focused ? 'green' : '#57bf9e'} // Cor dinâmica (ativo/inativo)
@@ -45,11 +41,15 @@ export default function ShowRoutes(){
             },
             tabBarActiveTintColor: 'green', // Cor do ícone ativo
             tabBarInactiveTintColor: 'gray', // Cor do ícone inativo
-            tabBarStyle: { height: 70, paddingTop:10, paddingBottom: 10, justifyContent: 'center',}, // Estilo da barra
+            tabBarStyle: { 
+                height: 70, 
+                paddingTop:10, 
+                paddingBottom: 10,
+                justifyContent: 'center',}, // Estilo da barra
         })}>
             <Tab.Screen
                 name="HomeTab"
-                component={AuthNav}
+                component={HomeNav}
             />
             <Tab.Screen
                 name="ProdutosTab"

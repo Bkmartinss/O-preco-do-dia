@@ -22,7 +22,7 @@ export default function Categoria({ navigation }) {
     })
     .then((data) => {
       if (data && data.statusCode == 201) { //se == criada com sucesso
-        setMessage('Categoria criada com sucesso!');
+        setMessage('Categoria criada com sucesso!'); 
       } else {
         setMessage('Erro ao criar uma nova categoria.');
       }

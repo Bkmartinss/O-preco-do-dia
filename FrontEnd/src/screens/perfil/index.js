@@ -55,7 +55,8 @@ export default function Perfil({ navigation }) {
         <TouchableOpacity style={styles.itemContainer}>
           <Icon name="logout" size={24} color="#000" />
           <View style={styles.textContainer}>
-            <Text style={styles.itemTitle}>Sair</Text>
+            <Text style={styles.itemTitle} 
+              onPress={() => navigation.navigate('Login')}>Sair</Text>
             <Text style={styles.itemDescription}>
               Fazer Logout do Aplicativo
             </Text>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 import { styles } from './styles';
 import { Picker } from '@react-native-picker/picker';
-// import * as ImagePicker from 'expo-image-picker';
 
 export default function Produtos({ navigation }) {
   const [selectedValue, setSelectedValue] = useState('option1');
@@ -13,7 +12,6 @@ export default function Produtos({ navigation }) {
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
   const [observacao, setObservacao] = useState('');
-  // const [image, setImage] = useState(null);
 
   useEffect(() => {
     fetchLocations(); //lista local
@@ -40,19 +38,6 @@ export default function Produtos({ navigation }) {
     }
   };
 
-  // const pickImage = async () => {
-  //   let result = await ImagePicker.launchImageLibraryAsync({
-  //     mediaTypes: ImagePicker.MediaTypeOptions.Images,
-  //     allowsEditing: true,
-  //     aspect: [4, 3],
-  //     quality: 1,
-  //   });
-
-  //   if (!result.canceled) {
-  //     setImage(result.uri);
-  //   }
-  // };
-
   const handleSave = async () => {  
     const formData = new FormData(); //dados do produto
     formData.append('localId', selectedLocation);
@@ -60,15 +45,6 @@ export default function Produtos({ navigation }) {
     formData.append('preco', preco);
     formData.append('categoriaId', selectedCategory);
     formData.append('observacao', observacao);
-    // if (image) {
-    //   const fileName = image.split('/').pop(); 
-    //   const fileType = fileName.split('.').pop(); 
-    //   formData.append('image', {
-    //     uri: image,//caminho da imagem
-    //     name: fileName,//nome
-    //     type: `image/${fileType}`, //tipo
-    //   });
-    // }
 
     await fetch('http://127.0.0.1:3000/products', { //requisição POST
       method: 'POST',
@@ -153,10 +129,6 @@ export default function Produtos({ navigation }) {
         <Text style={styles.textTitle}>Foto *</Text>
         
         <View style={styles.subContainerImage}>
-          {/* <Pressable style={styles.formButtonImage} onPress={pickImage}>
-            <Text style={styles.textButtonImage}>Adcionar Foto</Text>
-          </Pressable>
-          {image && <Text>{image.split('/').pop()}</Text>} */}
         </View>
 
         <Pressable style={styles.formButton} onPress={handleSave}>
