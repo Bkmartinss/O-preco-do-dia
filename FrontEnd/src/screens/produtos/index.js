@@ -4,7 +4,6 @@ import { styles } from './styles';
 import { Picker } from '@react-native-picker/picker';
 
 export default function Produtos({ navigation }) {
-  const [selectedValue, setSelectedValue] = useState('option1');
   const [selectedLocation, setSelectedLocation] = useState(''); //local
   const [selectedCategory, setSelectedCategory] = useState(''); //categoria
   const [locations, setLocations] = useState([]); //local list
@@ -49,7 +48,7 @@ export default function Produtos({ navigation }) {
     await fetch('http://127.0.0.1:3000/products', { //requisição POST
       method: 'POST',
       headers: {
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'multipart/form-data', 
       },
       body: formData,
     })
@@ -76,7 +75,7 @@ export default function Produtos({ navigation }) {
 
         <View style={styles.pickerContainer}>
           <Picker //dropdown 
-            selectedValue={selectedValue}
+            selectedValue={selectedLocation}
             onValueChange={(itemValue) => setSelectedValue(itemValue)}
             style={styles.picker}
           >

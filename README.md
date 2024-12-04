@@ -21,7 +21,7 @@ O Preço do Dia é ideal para pequenas e médias empresas ou indivíduos que pre
 ## Tecnologias Utilizadas
 - **Frontend**: React Native, Expo,
 - **Navegação**: React Navigation (Stack e Tab Navigators)
-- **Backend**: Integrações com APIs externas
+- **Backend**: Integrações com APIs externas 
 - **Gerenciamento de Dependências**: Yarn
 - **Ambiente de Desenvolvimento**: Node.js (versão 18)
 
@@ -30,26 +30,33 @@ Ferramentas que precisam ser instaladas no seu ambiente de desenvolvimento:
 - **Node.js** (versão 18 ou superior)
 - **Yarn** (para gerenciamento de pacotes)
 - **Expo Go** (para desenvolvimento React Native)
+- **Docker** (Para rodar a API)
 
 ## Instalação
 1. Clone o repositório:
    ```bash
    git clone https://github.com/bkmartinss/o-preco-do-dia.git
    cd o-preco-do-dia
-   npm install
-   npx expo start -c
-    a - android
-    w - web //uso este
+
+   cd FrontEnd
+    npm install
+    npx expo start -c
+        a - android
+        w - web //uso este
+
+   cd BackEnd
+    npm install
+    npm run go 
 
 ## Como Usar
 Após iniciar o servidor, abra o app Expo Go no seu dispositivo móvel, web ou use um emulador.
 Leia o QR Code exibido no terminal ou navegador.
 Navegue pelas abas:
-**Login**: Página inicial.
-**Cadastro**: Página para cadastrar o usuário.
-**Home**: Página principal com listagem dos produtos.
-**Produtos**: Cadastro de produtos.
-**Categoria**: Cadastro de categorias dos produtos.
-**Local**: Cadastro de locais.
-**Perfil**: Visualize e edite informações do usuário.
+- **Login**: Página inicial.
+- **Cadastro**: Página para cadastrar o usuário.
+- **Home**: Página principal com listagem dos produtos.
+- **Produtos**: Cadastro de produtos.
+- **Categoria**: Cadastro de categorias dos produtos.
+- **Local**: Cadastro de locais.
+- **Perfil**: Visualize e edite informações do usuário.
 

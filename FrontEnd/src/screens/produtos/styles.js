@@ -45,6 +45,7 @@ export const styles = StyleSheet.create({
     textLink:{
         color: 'blue', // Cor link
         fontSize: 16, // Tamanho
+        alignSelf: 'flex-start',
         textDecorationLine: 'underline', // Sublinhado
     },
 
@@ -53,6 +54,7 @@ export const styles = StyleSheet.create({
         height: '100%',
         paddingHorizontal: 10,
         marginBottom: 15,
+        fontSize: 18
     },
     pickerItem: {
         textAlign: 'left', // Alinha dentro do Picker
@@ -74,13 +76,6 @@ export const styles = StyleSheet.create({
 
     subContainer: {
         marginTop: 20, // Espaço acima do link
-    },
-
-    linklocal: {
-        color: 'blue', // Cor link
-        fontSize: 16, // Tamanho
-        textDecorationLine: 'underline', // Sublinhado
-        alignItems: 'flex-start',
     },
 
     formInputObs:{
