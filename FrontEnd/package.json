@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/metro-runtime": "~3.2.3",
+    "@react-native-async-storage/async-storage": "^2.1.0",
     "@react-native-picker/picker": "^2.9.0",
     "@react-navigation/bottom-tabs": "^7.0.6",
     "@react-navigation/native": "^7.0.3",
@@ -19,6 +20,7 @@
     "expo-linking": "~7.0.3",
     "expo-router": "~4.0.7",
     "expo-status-bar": "~2.0.0",
+    "o-preco-do-dia": "file:",
     "react": "18.3.1",
     "react-dom": "18.2.0",
     "react-native": "0.76.2",

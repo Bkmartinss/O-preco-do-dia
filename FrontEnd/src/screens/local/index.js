@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState }from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 import { styles } from './styles';
 
 export default function Local({ navigation }) {
-  const [nome, setNome] = React.useState('');
-  const [cep, setCep] = React.useState('');
-  const [logradouro, setlogradouro] = React.useState('');
-  const [numero, setNumero] = React.useState('');
-  const [bairro, setBairro] = React.useState('');
-  const [cidade, setCidade] = React.useState('');
-  const [estado, setEstado] = React.useState('');
+  const [message, setMessage] = useState('');
+  const [nome, setNome] = useState('');
+  const [cep, setCep] = useState('');
+  const [logradouro, setlogradouro] = useState('');
+  const [numero, setNumero] = useState('');
+  const [bairro, setBairro] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [estado, setEstado] = useState('');
 
   const handleSave = async () => {
     await fetch('http://127.0.0.1:3000/locations', {
@@ -34,8 +35,10 @@ export default function Local({ navigation }) {
     .then(data => {
       if (data && data.statusCode == 201) {
         navigation.navigate('Home');
+        setMessage('Local criado com sucesso!'); 
       } else {
         console.log("Erro");
+        setMessage('Erro ao tentar criar local!'); 
       }
     })
     .catch(error => console.error('Error:', error));
@@ -90,6 +93,7 @@ export default function Local({ navigation }) {
         <Pressable style={styles.formButton} onPress={handleSave}>
           <Text style={styles.textButton}>Salvar</Text>
         </Pressable>
+        {message ? <Text style={styles.message}>{message}</Text> : null}
       </View>
           
     </View>

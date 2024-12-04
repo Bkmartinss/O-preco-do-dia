@@ -1,10 +1,11 @@
 import React from 'react';
 import { Image, Pressable, Text, TextInput, View } from 'react-native';
 import { styles } from './styles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Login({ navigation }) {
-  const [user, setUser] = React.useState(' ');
-  const [pass, setPass] = React.useState(' ');
+  const [user, setUser] = React.useState('');
+  const [pass, setPass] = React.useState('');
 
   return (
     <View style={styles.container}>
@@ -68,12 +69,19 @@ async function fazerLogin(user, pass, navigation) {
       return res.json();
     })
     .then((data) => validaLogin(data, navigation))
-    .catch((error) => console.error('Error:', error))
+    .catch((error) => console.error('Error:', error));
 }
 
 async function validaLogin(res, navigation) {
   if (res && res.statusCode == 200) {
-    navigation.navigate('Home');
+    try {
+      await AsyncStorage.setItem('token', res.token); // Salva o token no AsyncStorage
+      console.log(res.token);
+      console.log(AsyncStorage.getItem("token"));
+      navigation.navigate('Home');
+    } catch (error) {
+      console.error('Error saving token:', error);
+    }
   } else {
     console.log('Erro');
   }

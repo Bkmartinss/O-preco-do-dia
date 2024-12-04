@@ -1,5 +1,6 @@
 const express = require('express');
 const multer = require('multer');
+const jwt = require('jsonwebtoken'); // Make sure to import jwt
 const router = express.Router();
 const { Op } = require('sequelize');
 const sequelize = require('../config/database');
@@ -9,7 +10,7 @@ const Location = require('../models/Location');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './uploads/');
+        cb(null, './uploads/imagem-exemplo.jpg');
     },
     filename: (req, file, cb) => {
         cb(null, new Date().toISOString() + file.originalname);
@@ -17,6 +18,21 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
+
+const authenticateToken = (req, res, next) => {
+    const authHeader = req.headers['authorization']; // Pega o cabeçalho 'Authorization'
+    const token = authHeader && authHeader.split(' ')[1]; //Se o cabeçalho 'Authorization' estiver presente
+    
+    console.log("back-end: " + token + " authHeader: " + authHeader);
+   
+    if (token == null) return res.sendStatus(401);//Se o token não for fornecido
+    //Verifica a validade do token usando a chave secreta
+    jwt.verify(token, process.env.SECRET, (err, user) => {
+        if (err) return res.sendStatus(403);//Se oerro
+        req.user = user; //Se o token for válido
+        next(); //proximo 
+    });
+};
 
 router.get('/products', async (req, res) => {
     try {
@@ -32,21 +48,22 @@ router.get('/products', async (req, res) => {
     }
 });
 
-router.post('/products', upload.single('image'), async (req, res) => {
+router.post('/products', authenticateToken, upload.single('image'), async (req, res) => {
     try {
-
-        
-
+        console.log("locations e categoria ids: "+ req.body.LocationId + " " + req.body.CategoryId)
         const product = await Product.create({
             nome: req.body.nome,
             preco: req.body.preco,
             descricao: req.body.descricao,
-            // image: req.file.path,
-            // usuario: req.body.usuario,
-            CategoryId: req.body.categoriaId,
-            LocationId: req.body.localId
+            image: "../uploads/imagem-exemplo.jpg",
+            usuario: req.user.userName, // Use the user from the token
+            CategoryId: req.body.CategoryId,
+            LocationId: req.body.LocationId
         });
-        res.status(201).json(product);
+        res.status(201).json({
+            statusCode: 201,
+            message: "Produto cadastrado com sucesso",
+        });
     } catch (err) {
         console.error('Error creating product:', err);
         res.status(400).json({ error: err.message });

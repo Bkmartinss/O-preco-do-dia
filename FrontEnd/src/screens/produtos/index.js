@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';//estado e efeitos
 import { Pressable, Text, TextInput, View } from 'react-native';
 import { styles } from './styles';
-import { Picker } from '@react-native-picker/picker';
+import { Picker } from '@react-native-picker/picker';//seletor de opções
+import AsyncStorage from '@react-native-async-storage/async-storage';//armazenamento assíncrono para recuperar o token
 
 export default function Produtos({ navigation }) {
+  const [message, setMessage] = useState(''); //mensagem do sistema
   const [selectedLocation, setSelectedLocation] = useState(''); //local
   const [selectedCategory, setSelectedCategory] = useState(''); //categoria
   const [locations, setLocations] = useState([]); //local list
@@ -11,7 +13,8 @@ export default function Produtos({ navigation }) {
   const [nome, setNome] = useState('');
   const [preco, setPreco] = useState('');
   const [observacao, setObservacao] = useState('');
-
+  // const [user, setUser] = useState(''); // Add state for user
+ 
   useEffect(() => {
     fetchLocations(); //lista local
     fetchCategories(); //lista categoria
@@ -37,37 +40,52 @@ export default function Produtos({ navigation }) {
     }
   };
 
-  const handleSave = async () => {  
-    const formData = new FormData(); //dados do produto
-    formData.append('localId', selectedLocation);
+  const handleSave = async () => {  //dados do formulário para a API
+    const formData = new FormData();
     formData.append('nome', nome);
     formData.append('preco', preco);
-    formData.append('categoriaId', selectedCategory);
-    formData.append('observacao', observacao);
-
-    await fetch('http://127.0.0.1:3000/products', { //requisição POST
-      method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data', 
-      },
-      body: formData,
-    })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
+    formData.append('descricao', observacao);
+    formData.append('CategoryId', selectedCategory);
+    formData.append('LocationId', selectedLocation);
+    formData.append('image', "imagemGenerica");
+  
+    try {
+      const token = await AsyncStorage.getItem('token'); //Recupera o token do usuário com AsyncStorage
+  
+      if (!token) {
+        throw new Error('No token found');
       }
-      return res.json();
-    })
-    .then(data => {
-      if (data && data.statusCode == 201) {
-        navigation.navigate('Home'); //tela Home
-      } else {
-        console.log("Erro");
-      }
-    })
-    .catch(error => console.error('Error:', error));
+  
+      await fetch('http://127.0.0.1:3000/products', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        body: formData,
+      })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return res.json();
+      })
+      .then(data => {
+        if (data && data.statusCode == 201) {
+          navigation.navigate('Home');
+          setMessage('Produto criado com sucesso!'); 
+        } else {
+          console.log("Erro");
+          setMessage('Erro ao crir um novo produto!'); 
+        }
+      })
+      .catch(error => console.error('Error:', error));
+    } catch (error) {
+      console.error('Error retrieving token:', error);
+    }
   };
+  
 
+  
   return(
     <View style={styles.container}>
       <View style={styles.formContainer}>
@@ -76,7 +94,7 @@ export default function Produtos({ navigation }) {
         <View style={styles.pickerContainer}>
           <Picker //dropdown 
             selectedValue={selectedLocation}
-            onValueChange={(itemValue) => setSelectedValue(itemValue)}
+            onValueChange={(itemValue) => setSelectedLocation(itemValue)}
             style={styles.picker}
           >
             {locations.map((location) => (
@@ -133,6 +151,7 @@ export default function Produtos({ navigation }) {
         <Pressable style={styles.formButton} onPress={handleSave}>
           <Text style={styles.textButton}>Salvar</Text>
         </Pressable>
+        {message ? <Text style={styles.message}>{message}</Text> : null}
       </View>
 
     </View>

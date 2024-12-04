@@ -18,7 +18,13 @@ router.post('/locations', async (req, res) =>{
             cidade: req.body.cidade,
             estado: req.body.estado
         });
-        res.status(201).json(location);
+        res.status(201).json({
+            statusCode: 201, //Recurso criado com sucesso
+            message: "Categoria criado com sucesso!",
+            data: {
+                location
+            }
+        });
     }catch(err){
         res.status(400).json({ error: err.message });
     }

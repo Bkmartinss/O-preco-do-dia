@@ -27,14 +27,17 @@ const login = async (req, res) => { //autenticação de login
             });
         }
         //cria o token JWT com usuário e senha de forma secreta, em variáveis de ambiente
-        const token = jwt.sign({ userName: user.userName }, process.env.SECRET);
+        const token = jwt.sign(
+            { userName: user.userName },
+            process.env.SECRET,
+            { expiresIn: '1h' } // Token expira em 1 hora
+        );
         console.log("token " + token);
         res.status(200).json({ 
             statusCode: 200,
             message: "Login realizado com sucesso",
-            data: {
-                token: token, //token gerado
-            },
+            token: token //token gerado
+            
         });
         
     console.log("Ress final")
@@ -48,9 +51,9 @@ const login = async (req, res) => { //autenticação de login
 };
 
 const verifyToken = async (req, res, next) => { //verificação de tem token JWT
-    const tokenHeader = req.headers["authorization"];
+    const tokenHeader = req.headers["Authorization"];
     
-    //const token = tokenHeader && tokenHeader.split(" ")[1]; 
+    const token = tokenHeader && tokenHeader.split(" ")[1]; 
     
     if (!tokenHeader) { // se token não encontrado
         return res.status(401).json({
@@ -59,7 +62,7 @@ const verifyToken = async (req, res, next) => { //verificação de tem token JWT
         });
     }
     try {
-        jwt.verify(tokenHeader, process.env.SECRET);
+        jwt.verify(token, process.env.SECRET);
         next(); //token seja válido
     } catch (error) {
         console.error(error);
