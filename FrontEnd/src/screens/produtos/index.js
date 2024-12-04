@@ -88,7 +88,7 @@ export default function Produtos({ navigation }) {
 
         <View style={styles.subContainerLocal}>
           <Text style={styles.textLink}
-            onPress={() => {console.log("Navegando para: Local"); navigation.navigate('LocalTab')}}
+            onPress={() => {navigation.navigate('LocalTab')}}
           >Sugerir local</Text>
         </View>
         

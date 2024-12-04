@@ -13,25 +13,25 @@ export default function Cadastro({ navigation }) {
       <View style={styles.formContainer}>        
         <Text style={styles.textTitle}>Email</Text>
         <TextInput style={styles.formInput}
-          placeholder='Value'
+          placeholder='Digite seu email...'
           autoCapitalize='none'
           onChangeText={setEmail}
         />
         <Text style={styles.textTitle}>Senha</Text>
         <TextInput style={styles.formInput}
-          placeholder='Value'
+          placeholder='Digite sua senha...'
           autoCapitalize='none'
           onChangeText={setPass}
         />
         <Text style={styles.textTitle}>Nome Completo</Text>
         <TextInput style={styles.formInput}
-          placeholder='Value'
+          placeholder='Digite seu nome completo...'
           autoCapitalize='none'
           onChangeText={setFullName}
         />
         <Text style={styles.textTitle}>Usuário</Text>
         <TextInput style={styles.formInput}
-          placeholder='Value'
+          placeholder='Digite seu usuário...'
           autoCapitalize='none'
           onChangeText={setUserName}
         />

@@ -19,7 +19,6 @@ export default props => (
         initialRouteName="Login" //tela inicial
         screenOptions={{ //aplicado a todas as telas
             headerShown: false,
-            headerLeft: () => null,
             headerTitleAlign: 'center',
             headerTitleStyle: {
                 fontSize: 25,
@@ -29,7 +28,7 @@ export default props => (
             <Stack.Screen name="Login" component={login}/>
             <Stack.Screen name="Cadastro" component={cadastro} options={{headerShown: true}}/>
             <Stack.Screen name="Home" component={ShowRoutes} />
-            <Stack.Screen name="Perfil" component={perfil} />
+            {/* <Stack.Screen name="Perfil" component={perfil} /> */}
             <Stack.Screen name="Editar" component={editar} options={{headerShown: true}}/>
     </Stack.Navigator>
 )
@@ -44,7 +43,8 @@ export function HomeNav(){
 }
 export function ProdutosNav(){
     return(
-        <Stack.Navigator screenOptions={{ 
+        <Stack.Navigator screenOptions={{
+            headerLeft: () => null, 
             headerTitleAlign: 'center',
             headerTitleStyle: {
                 fontSize: 25,
@@ -58,6 +58,7 @@ export function ProdutosNav(){
 export function LocalNav(){
     return(
         <Stack.Navigator screenOptions={{ 
+            headerLeft: () => null, 
             headerTitleAlign: 'center',
             headerTitleStyle: {
                 fontSize: 25,
@@ -71,6 +72,7 @@ export function LocalNav(){
 export function CategoriaNav(){
     return(
         <Stack.Navigator screenOptions={{ 
+            headerLeft: () => null, 
             headerTitleAlign: 'center',
             headerTitleStyle: {
                 fontSize: 25,
@@ -84,6 +86,7 @@ export function CategoriaNav(){
 export function PerfilNav(){
     return(
         <Stack.Navigator screenOptions={{ 
+            headerLeft: () => null, 
             headerTitleAlign: 'center',
             headerTitleStyle: {
                 fontSize: 25,
