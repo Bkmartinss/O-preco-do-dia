@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, TextInput, View, TouchableOpacity, FlatList} from 'react-native';
+import { Text, TextInput, View, TouchableOpacity, FlatList, Image} from 'react-native';
 import { styles } from './styles';
 
 export default function Home({ navigation }) {
@@ -22,6 +22,10 @@ export default function Home({ navigation }) {
 
   const renderItem = ({ item }) => ( //Renderiza cada item da lista como um TouchableOpacity
     <TouchableOpacity style={styles.itemContainer}>
+      <Image 
+        source={{ uri: item.image }} // A URL da imagem retornada pelo backend
+        style={styles.itemImage} // Estilo da imagem
+      />
       <Text style={styles.itemName}>{item.nome}</Text>
       <Text style={styles.itemPrice}>{item.preco}</Text>
     </TouchableOpacity>

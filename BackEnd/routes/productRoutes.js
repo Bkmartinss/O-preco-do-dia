@@ -20,17 +20,17 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['authorization']; // Pega o cabeçalho 'Authorization'
-    const token = authHeader && authHeader.split(' ')[1]; //Se o cabeçalho 'Authorization' estiver presente
+    const authHeader = req.headers['authorization']; // Use lowercase 'authorization'
+    const token = authHeader && authHeader.split(' ')[1];
     
     console.log("back-end: " + token + " authHeader: " + authHeader);
    
-    if (token == null) return res.sendStatus(401);//Se o token não for fornecido
-    //Verifica a validade do token usando a chave secreta
+    if (token == null) return res.sendStatus(401);
+
     jwt.verify(token, process.env.SECRET, (err, user) => {
-        if (err) return res.sendStatus(403);//Se oerro
-        req.user = user; //Se o token for válido
-        next(); //proximo 
+        if (err) return res.sendStatus(403);
+        req.user = user;
+        next();
     });
 };
 
