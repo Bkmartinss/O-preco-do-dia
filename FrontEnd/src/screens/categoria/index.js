@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Pressable, Text, TextInput, View } from 'react-native';
 import { styles } from './styles';
+import { ip } from '../../ip';
 
 export default function Categoria({ navigation }) {
   const [nome, setNome] = useState('');
   const [message, setMessage] = useState('');
 
   const criarCategoria = async (nome) => {
-    await fetch('http://127.0.0.1:3000/categories/add', {
+    await fetch(ip+'/categories/add', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

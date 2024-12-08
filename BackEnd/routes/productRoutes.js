@@ -19,20 +19,20 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-const authenticateToken = (req, res, next) => {
-    const authHeader = req.headers['authorization']; // Use lowercase 'authorization'
-    const token = authHeader && authHeader.split(' ')[1];
+// const authenticateToken = (req, res, next) => {
+//     const authHeader = req.headers['authorization']; // Use lowercase 'authorization'
+//     const token = authHeader && authHeader.split(' ')[1];
     
-    console.log("back-end: " + token + " authHeader: " + authHeader);
+//     console.log("back-end: " + token + " authHeader: " + authHeader);
    
-    if (token == null) return res.sendStatus(401);
+//     if (token == null) return res.sendStatus(401);
 
-    jwt.verify(token, process.env.SECRET, (err, user) => {
-        if (err) return res.sendStatus(403);
-        req.user = user;
-        next();
-    });
-};
+//     jwt.verify(token, process.env.SECRET, (err, user) => {
+//         if (err) return res.sendStatus(403);
+//         req.user = user;
+//         next();
+//     });
+// };
 
 router.get('/products', async (req, res) => {
     try {
@@ -48,7 +48,7 @@ router.get('/products', async (req, res) => {
     }
 });
 
-router.post('/products', authenticateToken, upload.single('image'), async (req, res) => {
+router.post('/products', upload.single('image'), async (req, res) => {
     try {
         console.log("locations e categoria ids: "+ req.body.LocationId + " " + req.body.CategoryId)
         const product = await Product.create({
@@ -56,7 +56,7 @@ router.post('/products', authenticateToken, upload.single('image'), async (req, 
             preco: req.body.preco,
             descricao: req.body.descricao,
             image: "../uploads/imagem-exemplo.jpg",
-            usuario: req.user.userName, // Use the user from the token
+            usuario: 'bruna', // Use the user from the token
             CategoryId: req.body.CategoryId,
             LocationId: req.body.LocationId
         });

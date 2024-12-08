@@ -14,19 +14,23 @@ const useAuthStore = create((set) => ({
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                   
-                  username: user,//'emilys',
-                  password: pass,//'emilyspass',
+                  username: 'emilys',
+                  password: 'emilyspass',
                 
                 }),
                 credentials: 'include' // Include cookies (e.g., accessToken) in the request
             })
             const loginData = await loginResponse.json()
 
-            if (loginData.message != ''){
-               console.log('erro',loginData.message); 
-               set({mensagemError: 'Ocorreu um erro: ${loginData.message}'} );
+            // if (loginData.message != '' || loginData.message != undefined){
+            //    console.log('erro', loginData.message); 
+            //    set({mensagemError: 'Ocorreu um erro: ${loginData.message}' });
+            // }
+
+            if (loginData.accessToken){
+                set({userLogado: true, user:user, pass:pass, token:loginData.accessToken})
             }
-            console.log('loginData', loginData);
+            // console.log('loginData', loginData);
         } catch (error) {
             
         }

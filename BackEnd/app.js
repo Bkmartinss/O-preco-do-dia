@@ -11,23 +11,6 @@ const path = require('path');
 const cors = require('cors');
 const app = express();
 const swaggerDocument = JSON.parse(fs.readFileSync(path.join(__dirname, 'swagger.json'), 'utf8'));
-const { createProxyMiddleware } = require('http-proxy-middleware')
-
-// const corsOptions = { 
-//     origin: 'http://localhost:8082', // Replace with your frontend origin 
-//     credentials: true, // Permitir credenciais (cookies, autenticação HTTP)
-// };
-app.use('/api', createProxyMiddleware({ 
-    target: 'https://dummyjson.com', 
-    changeOrigin: true, 
-    pathRewrite: { 
-        '^/api': '', // Remova o prefixo /api ao encaminhar para o destino
-    }, 
-    onProxyReq: (proxyReq, req, res) => { 
-        proxyReq.setHeader('Access-Control-Allow-Origin', 'http://localhost:8082'); 
-        proxyReq.setHeader('Access-Control-Allow-Credentials', 'true'); 
-    }, 
-}));
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.json());

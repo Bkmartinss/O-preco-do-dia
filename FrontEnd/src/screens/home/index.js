@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Text, TextInput, View, TouchableOpacity, FlatList, Image} from 'react-native';
 import { styles } from './styles';
+import { ip } from '../../ip';
 
 export default function Home({ navigation }) {
   const [products, setProducts] = useState([]);
@@ -12,7 +13,7 @@ export default function Home({ navigation }) {
 
   const fetchProducts = async () => { //GET para buscar os produtos
     try {
-      const response = await fetch('http://127.0.0.1:3000/products');
+      const response = await fetch(ip+'/products');
       const data = await response.json();
       setProducts(data);
     } catch (error) {

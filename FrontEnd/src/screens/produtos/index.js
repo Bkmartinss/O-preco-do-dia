@@ -4,6 +4,7 @@ import { styles } from './styles';
 import { Picker } from '@react-native-picker/picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { launchCamera } from 'react-native-image-picker';
+import { ip } from '../../ip';
 
 export default function Produtos({ navigation }) {
   const [message, setMessage] = useState(''); //mensagem do sistema
@@ -23,7 +24,7 @@ export default function Produtos({ navigation }) {
 
   const fetchLocations = async () => { //requisição GET p API - locais
     try {
-      const response = await fetch('http://127.0.0.1:3000/locations');
+      const response = await fetch(ip+'/locations');
       const data = await response.json();
       setLocations(data);
     } catch (error) {
@@ -33,7 +34,7 @@ export default function Produtos({ navigation }) {
 
   const fetchCategories = async () => { //requisição GET p API - categoria
     try {
-      const response = await fetch('http://127.0.0.1:3000/categories');
+      const response = await fetch(ip+'/categories');
       const data = await response.json();
       setCategories(data);
     } catch (error) {
@@ -84,12 +85,12 @@ export default function Produtos({ navigation }) {
         throw new Error('No token found');
       }
   
-      await fetch('http://127.0.0.1:3000/products', {
+      await fetch(ip+'/products', {
         method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`
-          // 'Content-Type': 'multipart/form-data',
-        },
+        // headers: {
+        //   'Authorization': `Bearer ${token}`
+        //   // 'Content-Type': 'multipart/form-data',
+        // },
         body: formData,
       })
       .then(res => {
