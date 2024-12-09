@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Text, TextInput, View, TouchableOpacity, FlatList, Image} from 'react-native';
+import { ScrollView, Text, TextInput, View, TouchableOpacity, FlatList, Image} from 'react-native';
 import { styles } from './styles';
 import { ip } from '../../ip';
+import { useFocusEffect } from '@react-navigation/native';
 
 export default function Home({ navigation }) {
   const [products, setProducts] = useState([]);
@@ -10,6 +11,12 @@ export default function Home({ navigation }) {
   useEffect(() => {
     fetchProducts();//carregando a lista de produtos
   }, []);
+
+  useFocusEffect(
+    React.useCallback(() => {
+        fetchProducts();
+    }, [])
+  );
 
   const fetchProducts = async () => { //GET para buscar os produtos
     try {
@@ -20,11 +27,12 @@ export default function Home({ navigation }) {
       console.error('Error fetching products:', error);
     }
   };
-
-  const renderItem = ({ item }) => ( //Renderiza cada item da lista como um TouchableOpacity
+  
+  const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.itemContainer}>
+      {/* <Image source={{ uri: ip+`/${imagePath}` }} /> */}
       <Image 
-        source={{ uri: item.image }} // A URL da imagem retornada pelo backend
+          source={{ uri:`https://th.bing.com/th/id/R.802aca03fbd6935e021de0db11529460?rik=54nFDTP7qSKYqQ&pid=ImgRaw&r=0` }} // Construct the full URL
         style={styles.itemImage} // Estilo da imagem
       />
       <Text style={styles.itemName}>{item.nome}</Text>
@@ -33,20 +41,22 @@ export default function Home({ navigation }) {
   );
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.buscar}
-        placeholder='Pesquisar produto...'
-        autoCapitalize='none'
-        value={search}
-        onChangeText={setSearch}
-      />
-      <FlatList
-      //Filtra a lista de produtos com base no texto de busca (search
-        data={products.filter(product => product.nome.toLowerCase().includes(search.toLowerCase()))}
-        renderItem={renderItem}//cada item filtrado será renderizado
-        keyExtractor={item => item.id.toString()}//chave única para cada item na lista usando o ID do produto
-      />
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <TextInput
+          style={styles.buscar}
+          placeholder='Pesquisar produto...'
+          autoCapitalize='none'
+          value={search}
+          onChangeText={setSearch}
+        />
+        <FlatList
+        //Filtra a lista de produtos com base no texto de busca (search
+          data={products.filter(product => product.nome.toLowerCase().includes(search.toLowerCase()))}
+          renderItem={renderItem}//cada item filtrado será renderizado
+          keyExtractor={item => item.id.toString()}//chave única para cada item na lista usando o ID do produto
+        />
+      </View>
+    </ScrollView>
   );
 }

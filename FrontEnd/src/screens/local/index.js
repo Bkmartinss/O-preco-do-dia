@@ -1,5 +1,5 @@
 import React, { useState }from 'react';
-import { Pressable, Text, TextInput, View } from 'react-native';
+import { ScrollView, Pressable, Text, TextInput, View } from 'react-native';
 import { styles } from './styles';
 import { ip } from '../../ip';
 
@@ -46,57 +46,59 @@ export default function Local({ navigation }) {
   };
 
   return(
-    <View style={styles.container}>    
-      <View style={styles.formContainer}>        
-        <Text style={styles.textTitle}>Nome *</Text>
-        <TextInput style={styles.formInput}
-          placeholder='Value'
-          autoCapitalize='none'
-          onChangeText={setNome}
-        />
-        <Text style={styles.textTitle}>CEP</Text>
-        <TextInput style={styles.formInput}
-          placeholder='Value'
-          autoCapitalize='none'
-          onChangeText={setCep}
-        />
-        <Text style={styles.textTitle}>Logradouro</Text>
-        <TextInput style={styles.formInput}
-          placeholder='Value'
-          autoCapitalize='none'
-          onChangeText={setlogradouro}
-        />
-        <Text style={styles.textTitle}>N°</Text>
-        <TextInput style={styles.formInput}
-          placeholder='Value'
-          autoCapitalize='none'
-          onChangeText={setNumero}
-        />
-        <Text style={styles.textTitle}>Bairro</Text>
-        <TextInput style={styles.formInput}
-          placeholder='Value'
-          autoCapitalize='none'
-          onChangeText={setBairro}
-        />
-        <Text style={styles.textTitle}>Cidade</Text>
-        <TextInput style={styles.formInput}
-          placeholder='Value'
-          autoCapitalize='none'
-          onChangeText={setCidade}
-        />
-        <Text style={styles.textTitle}>Estado</Text>
-        <TextInput style={styles.formInput}
-          placeholder='Value'
-          autoCapitalize='none'
-          onChangeText={setEstado}
-        />
-      
-        <Pressable style={styles.formButton} onPress={handleSave}>
-          <Text style={styles.textButton}>Salvar</Text>
-        </Pressable>
-        {message ? <Text style={styles.message}>{message}</Text> : null}
+    <ScrollView>
+      <View style={styles.container}>    
+        <View style={styles.formContainer}>        
+          <Text style={styles.textTitle}>Nome *</Text>
+          <TextInput style={styles.formInput}
+            placeholder='Value'
+            autoCapitalize='none'
+            onChangeText={setNome}
+          />
+          <Text style={styles.textTitle}>CEP</Text>
+          <TextInput style={styles.formInput}
+            placeholder='Value'
+            autoCapitalize='none'
+            onChangeText={setCep}
+          />
+          <Text style={styles.textTitle}>Logradouro</Text>
+          <TextInput style={styles.formInput}
+            placeholder='Value'
+            autoCapitalize='none'
+            onChangeText={setlogradouro}
+          />
+          <Text style={styles.textTitle}>N°</Text>
+          <TextInput style={styles.formInput}
+            placeholder='Value'
+            autoCapitalize='none'
+            onChangeText={setNumero}
+          />
+          <Text style={styles.textTitle}>Bairro</Text>
+          <TextInput style={styles.formInput}
+            placeholder='Value'
+            autoCapitalize='none'
+            onChangeText={setBairro}
+          />
+          <Text style={styles.textTitle}>Cidade</Text>
+          <TextInput style={styles.formInput}
+            placeholder='Value'
+            autoCapitalize='none'
+            onChangeText={setCidade}
+          />
+          <Text style={styles.textTitle}>Estado</Text>
+          <TextInput style={styles.formInput}
+            placeholder='Value'
+            autoCapitalize='none'
+            onChangeText={setEstado}
+          />
+        
+          <Pressable style={styles.formButton} onPress={handleSave}>
+            <Text style={styles.textButton}>Salvar</Text>
+          </Pressable>
+          {message ? <Text style={styles.message}>{message}</Text> : null}
+        </View>
+            
       </View>
-          
-    </View>
+    </ScrollView>
   );
 }
