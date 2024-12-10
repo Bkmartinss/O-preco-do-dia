@@ -31,8 +31,9 @@ export default function Home({ navigation }) {
   const renderItem = ({ item }) => (
     <TouchableOpacity style={styles.itemContainer}>
       {/* <Image source={{ uri: ip+`/${imagePath}` }} /> */}
-      <Image 
-          source={{ uri:`https://th.bing.com/th/id/R.802aca03fbd6935e021de0db11529460?rik=54nFDTP7qSKYqQ&pid=ImgRaw&r=0` }} // Construct the full URL
+      <Image
+        soucer={'./uploads/imagem_exemplo.jpg'} 
+          // source={{ uri:`https://th.bing.com/th/id/R.802aca03fbd6935e021de0db11529460?rik=54nFDTP7qSKYqQ&pid=ImgRaw&r=0` }} // Construct the full URL
         style={styles.itemImage} // Estilo da imagem
       />
       <Text style={styles.itemName}>{item.nome}</Text>

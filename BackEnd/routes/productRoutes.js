@@ -63,6 +63,7 @@ router.post('/products', upload.single('image'), async (req, res) => {
         nome: req.body.nome,
         preco: req.body.preco,
         descricao: req.body.descricao,
+        // image: imagePath,
         image: req.file ? req.file.filename : './uploads/imagem_exemplo.jpg',
         usuario: 'bruna', // Use the user from the token
         CategoryId: req.body.CategoryId,

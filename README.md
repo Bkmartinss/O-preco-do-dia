@@ -7,6 +7,7 @@ O Preço do Dia é um aplicativo mobile que permite aos usuários gerenciar os p
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Pré-requisitos](#pré-requisitos)
 - [Instalação](#instalação)
+- [Bibliotecas](#bibliotecas)
 - [Como Usar](#como-usar)
 
 ## Descrição
@@ -47,6 +48,18 @@ Ferramentas que precisam ser instaladas no seu ambiente de desenvolvimento:
    cd BackEnd
     npm install
     npm run go 
+## Bibliotecas
+Dentro da pasta do projeto as bibiotecas para instalar:
+
+npm install @react-navigation/native
+npx expo install react-native-screens react-native-safe-area-context
+npx expo install @react-navigation/bottom-tabs
+npm install @react-navigation/native-stack
+npm install @react-native-async-storage/async-storage
+npm install @react-native-picker/picker
+npm install react-native-image-picker
+npm iinstall react-native-vector-icons/MaterialIcons
+
 
 ## Como Usar
 Após iniciar o servidor, abra o app Expo Go no seu dispositivo móvel, web ou use um emulador.

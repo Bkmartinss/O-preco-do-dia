@@ -1,2 +1,2 @@
-export const ip = 'http://192.168.0.106:3000';
+export const ip = 'https://api-produtos-9jmi.onrender.com';
 
